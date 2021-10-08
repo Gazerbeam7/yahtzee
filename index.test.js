@@ -11,3 +11,26 @@ describe('getDiceResult', () => {
     });
   });
 
+  const data = [
+    {
+      expected: 1,
+      roll: [1, 1, 1, 1, 1]
+    },
+    {
+      expected: 2,
+      roll: [1, 1, 2, 2, 2],
+    },
+    {
+      expected: 3,
+      roll: [1, 2, 3, 3, 5],
+    },
+  ];
+
+  describe.each(data)(`A triangle`, (triangle) => {
+    it(`whose roll are ${triangle.roll} should be ${triangle.expected}`, () => {
+      const expected = getTriangleType(...triangle.roll);
+
+      expect(type).toBe(triangle.type);
+    });
+  });
+
