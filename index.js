@@ -32,6 +32,18 @@ module.exports = class Game {
         return diceValue * roll.filter(x => x===diceValue).length;
     }
 
+    static CalculateXOfAKind(roll, numberDices)
+    {
+        for (let diceValue=1; diceValue<=6; diceValue++) {
+            {
+                if (roll.filter(x => x === diceValue).length >= numberDices) {
+                    return roll.sum();
+                }
+            }
+        }
+        return 0;
+    }
+
     partieStatut()
     {
         for (const property in grille) {
