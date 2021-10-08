@@ -9,6 +9,8 @@ module.exports = class Game {
                 return this.CalculateXOfAKind(roll, 3);
             case 'FourOfAKind':
                 return this.CalculateXOfAKind(roll, 4);
+            case 'FiveOfAKind':
+                return this.CalculateXOfAKind(roll, 5);
             case 'SmallStraight':
                 return this.SmallStraight(roll);
             default:
@@ -24,6 +26,13 @@ module.exports = class Game {
         return 30;
         if (roll.includes(3) && roll.includes(4) && roll.includes(5) && roll.includes(6))
         return 30;
+        return 0;
+    }
+
+    static HighStraight(roll)
+    {
+        if (roll.includes(1) && roll.includes(2) && roll.includes(3) && roll.includes(4) && roll.includes(4))
+            return 40;
         return 0;
     }
 
