@@ -1,8 +1,10 @@
-function getDiceResult = [1,2,3,4,5,6];
+import 'index.js'
+let game = new Game()
+import { describe, expect, test} from '@jest/globals'
 
 describe('getDiceResult', () => {
     it('retourne 1', () => {
-      const result = getDiceResult(1,2,3,4,5,6);
+      const result = getDiceResult(1);
   
       expect(result).toBe('1');
     });

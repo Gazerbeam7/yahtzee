@@ -54,5 +54,3 @@ class Game {
         console.log(grille);
     }
 }
-
-
