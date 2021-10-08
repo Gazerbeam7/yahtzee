@@ -1,7 +1,6 @@
 let grille = {1:null,2:null,3:null,4:null,5:null,6:null,sum:null,bonus:null};
 let status = 'nouveau';
-class Game {
-
+module.exports = class Game {
     CalculateOnes(roll)
     {
         return this.CalculateNumberCombination(roll, 1);
@@ -54,3 +53,5 @@ class Game {
         console.log(grille);
     }
 }
+
+
