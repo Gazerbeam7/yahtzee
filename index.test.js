@@ -3,8 +3,7 @@ new Game;
 
 describe('getDiceResult', () => {
     it('retourne 1', () => {
-      const result = Game.CalculateOnes(1);
-  
-      expect(result).toBe('1');
+      const result = Game.CalculateOnes([1,2,3,4,4]);
+      expect(result).toBe(1);
     });
   });

@@ -1,13 +1,14 @@
 let grille = {1:null,2:null,3:null,4:null,5:null,6:null,sum:null,bonus:null};
 let status = 'nouveau';
 module.exports = class Game {
-    CalculateOnes(roll)
+    static CalculateOnes(roll)
     {
         return this.CalculateNumberCombination(roll, 1);
     }
 
-    CalculateNumberCombination(roll, diceValue)
+    static CalculateNumberCombination(roll, diceValue)
     {
+        console.log(roll.filter(x => x===diceValue).length)
         return diceValue * roll.filter(x => x===diceValue).length;
     }
 
