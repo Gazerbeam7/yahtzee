@@ -37,7 +37,9 @@ module.exports = class Game {
         for (let diceValue=1; diceValue<=6; diceValue++) {
             {
                 if (roll.filter(x => x === diceValue).length >= numberDices) {
-                    return roll.sum();
+                    return roll.reduce(function(a, b){
+                        return a + b;
+                    }, 0);
                 }
             }
         }
