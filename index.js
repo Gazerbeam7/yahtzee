@@ -1,6 +1,26 @@
 let grille = {1:null,2:null,3:null,4:null,5:null,6:null,sum:null,bonus:null};
 let status = 'nouveau';
 class Game {
+
+    static CalculateOnes(roll)
+    {
+        return CalculateNumberCombination(roll, 1);
+    }
+
+public int CalculateTwos(int[] roll)
+{
+    return CalculateNumberCombination(roll, 2);
+}
+
+public int CalculateThrees(int[] roll)
+{
+    return CalculateNumberCombination(roll, 3);
+}
+
+private static int CalculateNumberCombination(int[] roll, int diceValue)
+{
+    return diceValue * roll.Count(dice => dice == diceValue);
+}
     static partieStatut()
     {
         for (const property in grille) {
