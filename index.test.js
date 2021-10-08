@@ -7,3 +7,4 @@ describe('getDiceResult', () => {
       expect(result).toBe(1);
     });
   });
+

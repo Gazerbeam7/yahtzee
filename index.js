@@ -1,14 +1,34 @@
 let grille = {1:null,2:null,3:null,4:null,5:null,6:null,sum:null,bonus:null};
 let status = 'nouveau';
 module.exports = class Game {
-    static CalculateOnes(roll)
+    static calculate(combinaison, roll, diceValue)
     {
-        return this.CalculateNumberCombination(roll, 1);
+        switch (combination)
+        {
+            case 'ThreeOfAKind':
+                return this.CalculateXOfAKind(roll, 3);
+            case 'FourOfAKind':
+                return this.CalculateXOfAKind(roll, 4);
+            case 'SmallStraight':
+                return this.SmallStraight(roll);
+            default:
+                return this.CalculateNumberCombination(roll, diceValue);
+        }
+    }
+
+    static SmallStraight(roll)
+    {
+        if (roll.includes(1) && roll.includes(2) && roll.includes(3) && roll.includes(4))
+        return 30;
+        if (roll.includes(2) && roll.includes(3) && roll.includes(4) && roll.includes(5))
+        return 30;
+        if (roll.includes(3) && roll.includes(4) && roll.includes(5) && roll.includes(6))
+        return 30;
+        return 0;
     }
 
     static CalculateNumberCombination(roll, diceValue)
     {
-        console.log(roll.filter(x => x===diceValue).length)
         return diceValue * roll.filter(x => x===diceValue).length;
     }
 
@@ -54,5 +74,3 @@ module.exports = class Game {
         console.log(grille);
     }
 }
-
-
