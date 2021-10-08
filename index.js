@@ -1,9 +1,9 @@
 let grille = {1:null,2:null,3:null,4:null,5:null,6:null,sum:null,bonus:null};
 let status = 'nouveau';
 module.exports = class Game {
-    static calculate(combinaison, roll, diceValue)
+    static calculate(combinaison, roll)
     {
-        switch (combination)
+        switch (combinaison)
         {
             case 'ThreeOfAKind':
                 return this.CalculateXOfAKind(roll, 3);
@@ -12,7 +12,7 @@ module.exports = class Game {
             case 'SmallStraight':
                 return this.SmallStraight(roll);
             default:
-                return this.CalculateNumberCombination(roll, diceValue);
+                return this.CalculateNumberCombination(roll, combinaison);
         }
     }
 
