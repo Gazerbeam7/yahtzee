@@ -3,6 +3,8 @@ module.exports = class Game {
     {
         switch (combinaison)
         {
+            case 'Luck':
+                return this.CalculateXOfAKind(roll, 1);
             case 'ThreeOfAKind':
                 return this.CalculateXOfAKind(roll, 3);
             case 'FourOfAKind':
