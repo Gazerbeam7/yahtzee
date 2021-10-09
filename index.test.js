@@ -176,6 +176,11 @@ dataSpecial = [
     expected: 30,
     roll: [4, 4, 4, 1, 1],
   },
+  {
+    calculated: 'FullHouse',
+    expected: 30,
+    roll: [4, 3, 4, 3, 4],
+  },
 ];
 describe.each(dataSpecial)(`Le resultat`, (d) => {
   it(`de ${d.calculated} du lancer ${d.roll} devrait être ${d.expected}`, () => {

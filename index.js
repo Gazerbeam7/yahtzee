@@ -1,5 +1,3 @@
-let grille = {1:null,2:null,3:null,4:null,5:null,6:null,sum:null,bonus:null};
-let status = 'nouveau';
 module.exports = class Game {
     static calculate(combinaison, roll)
     {
