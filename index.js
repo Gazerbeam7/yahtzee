@@ -13,6 +13,8 @@ module.exports = class Game {
                 return this.CalculateXOfAKind(roll, 5);
             case 'SmallStraight':
                 return this.SmallStraight(roll);
+            case 'HighStraight':
+                return this.HighStraight(roll);
             default:
                 return this.CalculateNumberCombination(roll, combinaison);
         }
@@ -31,7 +33,9 @@ module.exports = class Game {
 
     static HighStraight(roll)
     {
-        if (roll.includes(1) && roll.includes(2) && roll.includes(3) && roll.includes(4) && roll.includes(4))
+        if (roll.includes(1) && roll.includes(2) && roll.includes(3) && roll.includes(4) && roll.includes(5))
+            return 40;
+        if (roll.includes(2) && roll.includes(3) && roll.includes(4) && roll.includes(5) && roll.includes(6))
             return 40;
         return 0;
     }
@@ -46,6 +50,10 @@ module.exports = class Game {
         for (let diceValue=1; diceValue<=6; diceValue++) {
             {
                 if (roll.filter(x => x === diceValue).length >= numberDices) {
+                    if (numberDices === 5)
+                    {
+                        return 50
+                    }
                     return roll.reduce(function(a, b){
                         return a + b;
                     }, 0);
