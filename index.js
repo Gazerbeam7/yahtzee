@@ -15,6 +15,8 @@ module.exports = class Game {
                 return this.SmallStraight(roll);
             case 'HighStraight':
                 return this.HighStraight(roll);
+            case 'FullHouse':
+                return this.FullHouse(roll);
             default:
                 return this.CalculateNumberCombination(roll, combinaison);
         }
@@ -63,45 +65,37 @@ module.exports = class Game {
         return 0;
     }
 
-    partieStatut()
+    static FullHouse(roll)
     {
-        for (const property in grille) {
-            if (grille[property] != null) {
-                status = 'en_cours'
-                return status
+        let found = 0;
+        let foundResult2 = 0;
+        let foundResult3 = 0;
+        let foundResultTotal = 0;
+        let three = false;
+        let two = false;
+        for (let j = 6; j > 0; j--) {
+            found = 0;
+            for (let i = 0; i < roll.length; i++) {
+                if (roll[i] === j) {
+                    found++;
+                    foundResult2 = Math.floor(parseInt(roll[i]) * 2);
+                    foundResult3 = Math.floor(parseInt(roll[i]) * 3);
+                }
+            }
+            if (found > 1) {
+                if (found === 2 && two === false) {
+                    foundResultTotal += foundResult2;
+                    two = true;
+                }
+                if (found === 3 && three === false) {
+                    foundResultTotal += foundResult3;
+                    three = true;
+                }
+                if (two === true && three === true) {
+                    return 30;
+                }
             }
         }
-        if (status !== 'nouveau')
-        {
-            status = 'termine'
-            return status
-        }
-        return status
-
-    }
-
-    rollDice(n){
-        let result = []
-        for (var i=1; i<=n; i++) {
-            var randomDice = Math.floor(6*Math.random())+1;
-            result.push(randomDice)
-        }
-        result = [ 4, 6, 5, 6, 4]
-        this.registerDice(result)
-    }
-
-    registerDice(dice)
-    {
-        // for (const d in dice) {
-        //     if (grille[property] != null) {
-        //         status = 'en_cours'
-        //         return status
-        //     }
-        // }
-
-        console.log(dice[1])
-        console.log(dice[3])
-        grille[6] = 12;
-        console.log(grille);
+        return 0;
     }
 }
