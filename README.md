@@ -18,3 +18,5 @@ Dans ce cas, les tests vont vérifier que marchent :
 - les sommes des combinaisons choisies sont aussi testés
 
 Le projet a été réalisé à l'aide de Node JS et de Jest, un framework de test javascript.
+
+<img width="433" alt="Capture d’écran 2021-10-10 à 15 16 50" src="https://user-images.githubusercontent.com/37074836/136697460-e6d847d8-8768-43dd-ab34-ddb9913ba565.png">
